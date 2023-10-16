@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<!--
+<style>
+.table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+.table th{
+        padding: 8px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+.table td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+.table th {
+        background-color: #f2f2f2;
+    }
+
+.Container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f7f7f7;
+    }
+
+.Foam {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        width: 300px;
+    }
+
+.title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+form {
+        display: flex;
+        flex-direction: column;
+    }
+
+label {
+        margin-bottom: 5px;
+    }
+
+input[type="text"],
+    select {
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border: 1px solid ;
+        border-radius: 5px;
+    }
+
+input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+.button,
+.button-1 {
+display: inline-block;
+font-size: 16px;
+margin-right: 10px;
+text-decoration: none;
+padding: 5px;
+color: #fff;
+border-radius: 50%;
+background-color: #4CAF50; /* Green color for update button */
+        }
+.button-1 {
+background-color: #f44336; /* Red color for delete button */
+        }
+</style>
+------->
+<style>
+body{
+    background-color: #1f242d;
+}
+h1
+{
+    color: #f7efef;;
+}
+.table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+.table th{
+        padding: 8px;
+        border: 1px solid #ddd;
+         color: #f7efef;;
+        text-align: left;
+    }
+.table td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        text-align: left;
+    }
+.table th {
+        background-color: #f2f2f2;
+        background-color: #1f242d;
+    }
+
+.Container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f7f7f7;
+        background-color: #1f242d;
+    }
+
+.Foam {
+        background-color: #fff;
+        background-color:  #323946;
+        color: #f7efef;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        width: 300px;
+    }
+
+.title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+form {
+        display: flex;
+        flex-direction: column;
+    }
+
+label {
+        margin-bottom: 5px;
+    }
+
+input[type="text"],
+    select {
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        color: #fff;
+        background-color:  #323946;
+        border-radius: 5px;
+    }
+ input[type="Number"],
+    select {
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+       color: #fff;
+        background-color:  #323946;
+        border-radius: 5px;
+    }   
+
+input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+textarea {
+       padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        background-color:  #323946;
+         color: #fff;
+        border-radius: 5px;
+}
+input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+.button,
+.button-1 {
+display: inline-block;
+font-size: 16px;
+margin-right: 10px;
+text-decoration: none;
+padding: 5px;
+color: #fff;
+border-radius: 50%;
+background-color: #4CAF50; /* Green color for update button */
+        }
+.button-1 {
+background-color: #f44336; /* Red color for delete button */
+        }
+</style>
+
+
+</head>
+<body>
+    <h1>{{title}}</h1>
+
+<!----- For insert Records or Data --------->
+
+<div class="Container">
+    <div class="Foam">
+        <div class="title">Employee Details form</div>
+        <form action="/update/" role="form" method="post"  >
+        {{!--  enctype="multipart/form-data" --}}
+       <input type="hidden" name="_id" value="{{records._id}}">
+     
+        <label for="Name">Name</label>
+            <input type="text" name="Name" value="{{records.Name}}">
+            <label for="Email">Email</label>
+            <input type="text" name="Email" value="{{records.Email}}">
+             <label for="Number">Number</label>
+            <input type="number"  name="Number" value="{{records.Number}}">
+             <label for="Email">Email Subject</label>
+            <input type="text"   name="Text" value="{{records.Text}}">
+             <label for="Email">Message</label>
+        <textarea name="Message" id="" cols="30" rows="10"   value="{{records.Message}}"></textarea>
+
+            <input type="submit" value="submit">
+
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
